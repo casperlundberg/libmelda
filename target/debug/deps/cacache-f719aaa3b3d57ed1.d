@@ -1,0 +1,20 @@
+/home/caslun/github/libmelda/target/debug/deps/cacache-f719aaa3b3d57ed1.d: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/async_lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/mod.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/path.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/read.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/rm.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/write.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/errors.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/index.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/get.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/ls.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/put.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/rm.rs
+
+/home/caslun/github/libmelda/target/debug/deps/libcacache-f719aaa3b3d57ed1.rmeta: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/async_lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/mod.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/path.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/read.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/rm.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/write.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/errors.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/index.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/get.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/ls.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/put.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/rm.rs
+
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/lib.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/async_lib.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/mod.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/path.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/read.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/rm.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/content/write.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/errors.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/index.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/get.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/ls.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/put.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cacache-11.7.1/src/rm.rs:
+
+# env-dep:CARGO_PKG_NAME=cacache
+# env-dep:CARGO_PKG_VERSION=11.7.1

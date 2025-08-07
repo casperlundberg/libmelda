@@ -1,0 +1,12 @@
+/home/caslun/github/libmelda/target/debug/deps/rio_turtle-21bbed625419899b.d: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/error.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/formatters.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/ntriples.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/shared.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/triple_allocator.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/turtle.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/utils.rs
+
+/home/caslun/github/libmelda/target/debug/deps/librio_turtle-21bbed625419899b.rmeta: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/lib.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/error.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/formatters.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/ntriples.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/shared.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/triple_allocator.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/turtle.rs /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/utils.rs
+
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/lib.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/error.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/formatters.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/ntriples.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/shared.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/triple_allocator.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/turtle.rs:
+/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rio_turtle-0.8.5/src/utils.rs:
