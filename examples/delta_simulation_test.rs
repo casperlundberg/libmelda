@@ -1,5 +1,5 @@
-// Delta Simulation Test for Melda CRDT
-// Tests what happens when we try to simulate delta operations by only providing new elements
+// Proper Melda Usage Demonstration
+// Shows the correct read-modify-write pattern for adding items to arrays
 
 use melda::{filesystemadapter::FilesystemAdapter, melda::Melda};
 use serde_json::json;
@@ -13,9 +13,9 @@ fn main() {
     _ = fs::remove_dir_all("delta_sim_alice");
     _ = fs::remove_dir_all("delta_sim_bob");
     
-    println!("=== Delta Simulation Test ===");
-    println!("Testing what happens when we simulate delta operations");
-    println!("by only providing new elements (not full state)\n");
+    println!("=== Proper Melda Usage Demonstration ===");
+    println!("Showing the correct read-modify-write pattern");
+    println!("for making incremental changes to documents\n");
     
     // Start with initial array
     let initial_json = json!({
@@ -46,19 +46,20 @@ fn main() {
     let adapter_bob = Box::new(FilesystemAdapter::new("delta_sim_bob").unwrap());
     let melda_bob = Melda::new(Arc::new(RwLock::new(adapter_bob))).unwrap();
     
-    println!("🔥 CRITICAL TEST: What happens when we simulate 'delta' operations?\n");
+    println!("🔥 PROPER USAGE: Read-Modify-Write Pattern\n");
     
-    // Alice tries to "add" item_4 by only providing the new item
-    println!("Alice attempts to 'add' item_4 by providing only the new element:");
-    let alice_delta_attempt = json!({
-        "doc": "Delta Simulation",
-        "items♭": [
-            {"_id": "item_4", "content": "Alice's new item"}
-        ]
-    });
+    // Alice: Read current state, modify it, write back
+    println!("Alice: Reading current state, adding item_4, writing back");
+    let mut alice_current = melda_alice.read(None).unwrap();
     
-    println!("Alice's 'delta' update contains only: [item_4]");
-    melda_alice.update(alice_delta_attempt.as_object().unwrap().clone()).unwrap();
+    // Add item_4 to the existing items array
+    if let Some(items) = alice_current.get_mut("items♭").and_then(|v| v.as_array_mut()) {
+        items.push(json!({"_id": "item_4", "content": "Alice's new item"}));
+        println!("  Current items: {:?}", items.iter().map(|i| i["_id"].as_str().unwrap()).collect::<Vec<_>>());
+    }
+    
+    println!("  Updating with modified state (all 4 items)");
+    melda_alice.update(alice_current.clone()).unwrap();
     melda_alice.commit(Some(json!({"op": "alice_add_item_4"}).as_object().unwrap().clone())).unwrap();
     
     println!("\nAlice's state after 'delta' operation:");
@@ -68,17 +69,18 @@ fn main() {
         println!("  [{}] {}", i, item["_id"].as_str().unwrap());
     }
     
-    // Bob tries to "add" item_5 the same way
-    println!("\nBob attempts to 'add' item_5 by providing only the new element:");
-    let bob_delta_attempt = json!({
-        "doc": "Delta Simulation",
-        "items♭": [
-            {"_id": "item_5", "content": "Bob's new item"}
-        ]
-    });
+    // Bob: Also uses read-modify-write pattern
+    println!("\nBob: Reading current state, adding item_5, writing back");
+    let mut bob_current = melda_bob.read(None).unwrap();
     
-    println!("Bob's 'delta' update contains only: [item_5]");
-    melda_bob.update(bob_delta_attempt.as_object().unwrap().clone()).unwrap();
+    // Add item_5 to the existing items array
+    if let Some(items) = bob_current.get_mut("items♭").and_then(|v| v.as_array_mut()) {
+        items.push(json!({"_id": "item_5", "content": "Bob's new item"}));
+        println!("  Current items: {:?}", items.iter().map(|i| i["_id"].as_str().unwrap()).collect::<Vec<_>>());
+    }
+    
+    println!("  Updating with modified state (all 4 items)");
+    melda_bob.update(bob_current.clone()).unwrap();
     melda_bob.commit(Some(json!({"op": "bob_add_item_5"}).as_object().unwrap().clone())).unwrap();
     
     println!("\nBob's state after 'delta' operation:");
@@ -89,53 +91,65 @@ fn main() {
     }
     
     println!("\n{}", "=".repeat(60));
-    println!("ANALYSIS OF 'DELTA' SIMULATION:");
-    println!("Expected behavior for true delta operations:");
+    println!("ANALYSIS OF PROPER USAGE:");
+    println!("Expected behavior using read-modify-write pattern:");
     println!("  - Alice: [item_1, item_2, item_3, item_4]");
     println!("  - Bob:   [item_1, item_2, item_3, item_5]");
-    println!("Actual behavior (state-based interpretation):");
+    println!("Actual behavior:");
     println!("  - Alice: {:?}", alice_items.iter().map(|i| i["_id"].as_str().unwrap()).collect::<Vec<_>>());
     println!("  - Bob:   {:?}", bob_items.iter().map(|i| i["_id"].as_str().unwrap()).collect::<Vec<_>>());
     
-    if alice_items.len() == 1 && bob_items.len() == 1 {
-        println!("\n❌ CONFIRMATION: Melda interpreted partial arrays as COMPLETE STATE REPLACEMENT");
-        println!("   Original items [item_1, item_2, item_3] were DELETED because they weren't");
-        println!("   included in the update. This confirms Melda is purely state-based.");
+    if alice_items.len() == 4 && bob_items.len() == 4 {
+        println!("\n✅ SUCCESS: Read-modify-write pattern works correctly!");
+        println!("   All original items preserved, new items added as expected.");
+        println!("   This is the proper way to use Melda's API.");
     } else {
-        println!("\n❓ UNEXPECTED: Melda preserved some original items despite partial update");
+        println!("\n❓ Unexpected result with read-modify-write pattern");
     }
     
-    // Now let's see what happens when we merge these "delta" operations
-    println!("\n🔄 MERGING THE 'DELTA' OPERATIONS:");
-    melda_alice.meld(&melda_bob).unwrap();
+    // Now let's see what happens when we merge the proper delta operations
+    println!("\n🔄 MERGING WITH PROPER DELTA OPERATIONS:");
+    let transferred_files = melda_alice.meld(&melda_bob).unwrap();
+    println!("Files transferred: {:?}", transferred_files);
+    println!("Number of files transferred: {}", transferred_files.len());
+    
     let _ = melda_alice.refresh();
     
     let final_state = melda_alice.read(None).unwrap();
     let final_items = final_state["items♭"].as_array().unwrap();
     
-    println!("Final merged state:");
+    println!("\nFinal merged state:");
     for (i, item) in final_items.iter().enumerate() {
-        println!("  [{}] {}", i, item["_id"].as_str().unwrap());
+        println!("  [{}] {} - {}", i, 
+            item["_id"].as_str().unwrap(),
+            item["content"].as_str().unwrap());
     }
     
-    println!("\nFinal Analysis:");
+    println!("\n{}", "=".repeat(60));
+    println!("FINAL ANALYSIS:");
     let final_ids: Vec<&str> = final_items.iter().map(|i| i["_id"].as_str().unwrap()).collect();
     
-    println!("- Contains original items? {}", 
-        ["item_1", "item_2", "item_3"].iter().any(|id| final_ids.contains(id)));
-    println!("- Contains Alice's addition? {}", final_ids.contains(&"item_4"));
-    println!("- Contains Bob's addition? {}", final_ids.contains(&"item_5"));
-    println!("- Total items: {}", final_items.len());
+    println!("✅ Contains all original items: {}", 
+        ["item_1", "item_2", "item_3"].iter().all(|id| final_ids.contains(id)));
+    println!("✅ Contains Alice's addition: {}", final_ids.contains(&"item_4"));
+    println!("✅ Contains Bob's addition: {}", final_ids.contains(&"item_5"));
+    println!("✅ Total items: {}", final_items.len());
     
-    if !["item_1", "item_2", "item_3"].iter().any(|id| final_ids.contains(id)) {
-        println!("\n🚨 CRITICAL FINDING: All original items were permanently lost!");
-        println!("   This proves that Melda requires COMPLETE state in every update.");
-        println!("   There is no way to perform incremental 'delta' operations.");
+    if final_items.len() == 5 && 
+       ["item_1", "item_2", "item_3"].iter().all(|id| final_ids.contains(id)) &&
+       final_ids.contains(&"item_4") && 
+       final_ids.contains(&"item_5") {
+        println!("\n🎉 PERFECT! Read-modify-write pattern enables true delta behavior!");
+        println!("   - All original items preserved");
+        println!("   - Both additions merged correctly"); 
+        println!("   - Only {} files transferred during sync", transferred_files.len());
+        println!("   - This demonstrates Melda's delta-state CRDT nature!");
     }
     
-    // Clean up
-    _ = fs::remove_dir_all("delta_sim_alice");
-    _ = fs::remove_dir_all("delta_sim_bob");
+    // Keep files for inspection - comment to clean up
+    // _ = fs::remove_dir_all("delta_sim_alice");
+    // _ = fs::remove_dir_all("delta_sim_bob");
+    println!("\nFiles kept in delta_sim_alice/ and delta_sim_bob/ for inspection");
 }
 
 fn copy_recursively(source: impl AsRef<Path>, destination: impl AsRef<Path>) -> io::Result<()> {
