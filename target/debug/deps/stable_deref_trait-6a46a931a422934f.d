@@ -1,7 +1,0 @@
-/home/caslun/github/libmelda/target/debug/deps/stable_deref_trait-6a46a931a422934f.d: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stable_deref_trait-1.2.0/src/lib.rs
-
-/home/caslun/github/libmelda/target/debug/deps/libstable_deref_trait-6a46a931a422934f.rlib: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stable_deref_trait-1.2.0/src/lib.rs
-
-/home/caslun/github/libmelda/target/debug/deps/libstable_deref_trait-6a46a931a422934f.rmeta: /home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stable_deref_trait-1.2.0/src/lib.rs
-
-/home/caslun/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stable_deref_trait-1.2.0/src/lib.rs:
